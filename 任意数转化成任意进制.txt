@@ -1,0 +1,28 @@
+#include<cstdio>
+/*
+将P进制的数x转化成Q进制的数y需要两步：
+	1、将P进制数x转化成十进制数y.
+		P进制数x为a1a2...an，则可以写成十进制的y=a1*pow(P,n-1)+...+an 
+	2、将十进制数y转化成Q进制数z.
+		十进制数y转化成Q进制z可以通过对Q取余，当商为0则将余数逆序排列。
+		int z[40],num=0;
+		do{
+			z[num++]=y%Q；
+			y=y/Q; 
+					
+		} while(y!=0);
+	 
+*/ 
+int main(){
+	int a,d;  //将a转化成任意进制 
+	scanf("%d%d",&a,&d);
+	int ans[31],num=0;
+	do{
+		ans[num++]=a%d;
+		a/=d;
+	}while(a!=0);
+	for(int i=num-1;i>=0;i--){
+		printf("%d",ans[i]);
+	}
+	return 0;
+}
