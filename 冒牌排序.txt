@@ -1,0 +1,27 @@
+#include<cstdio>
+int main(){
+	int n;
+	//输入数组的大小 
+	scanf("%d",&n);
+	int a[n];
+	//n个值的一维数组赋值 
+	for(int i=0;i<n;i++){
+		scanf("%d",&a[i]);
+	}
+	//冒牌排序
+	for(int i=1;i<n;i++){
+		for(int j=0;j<n-i;j++){
+			if(a[j]>a[j+1]){
+				int temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	} 
+	//输出结果
+	printf("从小到大的顺序为：");
+	for(int i=0;i<n;i++){
+		printf("%d",a[i]);
+	} 
+	return 0;
+}
