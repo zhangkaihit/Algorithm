@@ -1,3 +1,4 @@
+//Java实现：
 import java.security.acl.LastOwnerException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,3 +36,34 @@ public class Main {
 		System.out.println(score);
 	}
 }
+--------------------- 
+//C++实现
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a=1,score=0,num=0;//a存储输入数据，score为最终得分，num为连跳方块中心次数
+    while(~scanf("%d",&a)&&a!=0)//数据输入还没完成且a!=0
+        if(a==1){//如果a==1
+            score+=a;//加上1分
+            num=0;//连跳方块中心次数归零
+        }else if(a==2)//a==2
+            score+=2*(++num);//递增连跳方块中心次数，得分为该次数乘2
+    printf("%d",score);
+    return 0;
+}
+--------------------- 
+#Python实现
+sore,boostsore  = 0,2
+nums=list(input().split())
+for i in nums:
+    if i == '1':
+        sore += 1
+        boostsore = 2
+    elif i == '2':
+        sore = sore + boostsore
+        boostsore += 2
+    elif i == '0':
+        break
+print(sore)
+--------------------- 
+
