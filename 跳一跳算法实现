@@ -1,0 +1,37 @@
+import java.security.acl.LastOwnerException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class Main {
+	static Scanner sc;  //输入流
+	static int score;  //得分
+	static int time;  //总次数
+	static boolean lastTimeIsOne=false; //判断最后一个数是否是1
+	static int currentScore=0;  //此次得分
+	public static void main(String[] args) {
+		sc=new Scanner(System.in);
+		while(sc.hasNextInt()){
+			time++;
+			int st=sc.nextInt();
+			if(st==1){
+				score++;
+				lastTimeIsOne=true;
+				currentScore=1;
+			}
+			else if(st==2){
+				if(time==1||lastTimeIsOne){
+					currentScore=2;
+				}else{
+					currentScore+=2;
+				}
+				score+=currentScore;
+				lastTimeIsOne=false;
+			}
+			else if(st==0){
+				lastTimeIsOne=false;
+				break;
+			}
+		}
+		System.out.println(score);
+	}
+}
